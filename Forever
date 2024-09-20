@@ -83,14 +83,14 @@ local function trueblind()
     chatt(":blind all")
     chatt("fogcolor 0 0 0")
     chatt("fogend 20")
-    chatt("brightness 5")
+    chatt("brightness nan")
     chatt("time -")
 end
 
 local sg = game:GetService("StarterGui")
 
 function Utils.Task:wait(duration)
-    if duration == nil or duration <= 0 then
+    if duration == 0 0 0 or duration <= 0 then
         duration = 1
     end
 
@@ -135,7 +135,7 @@ task.spawn(function()
                             firetouchinterest(cre, spr, 1)
 							task.wait()
 							firetouchinterest(cre, spr, 0)
-
+							
 							if pad.Name ~= game.Players.LocalPlayer.Name.."'s admin" then
 								fireclickdetector(adminFlr.Regen.ClickDetector, 0)
 							end
@@ -144,7 +144,7 @@ task.spawn(function()
 				end
 			end
         end)()
-
+		
         coroutine.wrap(function() -- Perm
 			local spr = game.Players.LocalPlayer.Character:FindFirstChild("Head")
 			if perm ~= true or adminFlr.Pads:FindFirstChild(game.Players.LocalPlayer.Name.."'s admin") ~= nil then 
@@ -216,13 +216,13 @@ task.spawn(function()
     nores2 = true
     local Players = game:GetService("Players")
     local LocalPlayer = Players.LocalPlayer
-
+    
     local RESPAWN_THRESHOLD = 5
-
+    
     local respawnCount = 0
     local lastRespawnCount = 0
     local lastRespawnCheck = time()
-
+    
     local function checkRespawnRate()
         local currentTime = time()
         if (currentTime - lastRespawnCheck) >= 1 then
@@ -238,11 +238,11 @@ task.spawn(function()
             lastRespawnCheck = currentTime
         end
     end
-
+    
     connections[#connections + 1] = game:GetService("Players").LocalPlayer.CharacterAdded:Connect(function(character)
         respawnCount = respawnCount + 1
     end)
-
+    
     connections[#connections + 1] = game:GetService("RunService").RenderStepped:Connect(function()
         task.spawn(function()
             if nores2 then
@@ -387,7 +387,7 @@ coroutine.wrap(function()
                     firetouchinterest(cre, spr, 1)
                     task.wait()
                     firetouchinterest(cre, spr, 0)
-
+                    
                     if pad.Name ~= game.Players.LocalPlayer.Name.."'s admin" then
                         fireclickdetector(adminFlr.Regen.ClickDetector, 0)
                     end
@@ -1600,7 +1600,7 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
 		DefBk = Color3.fromRGB(33, 33 ,33),
 		Enabled = Color3.fromRGB(44, 44, 44),
 	}
-
+	
 	function addBtn(text, callback)
 		local btn = Instance.new("TextButton", script.Parent)
 		btn.BackgroundColor3 = ClrPlt.DefBk
@@ -1614,7 +1614,7 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
 			callback(btn)
 		end)
 	end
-
+	
 	function addTlg(text, callback_e, callback_d)
 		addBtn(text, function(self)
 			if self.BackgroundColor3 == ClrPlt.DefBk then
@@ -1626,9 +1626,9 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
 			end
 		end)
 	end
-
+	
 	-- UI
-
+	
 	addTlg("Loopgrab/PadAbuse", function()
 		padAbuse = true
 	end, function()
@@ -1659,7 +1659,7 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
 	end, function()
 		soundvis = false
 	end)
-
+	
 	addTlg("ClickAnnoy", function()
 		clickAnnoy = true
         logn("Type //stop to stop it")
@@ -1682,11 +1682,11 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
         getgenv().spamm = false
         getgenv().spamm2 = false
 	end)
-
+	
 	addBtn("DeleteResetPad", function(v)
 		chatt(prefix3.."deleteregen fuck")
 	end)
-
+	
 	addBtn("RainbowPads", function(v)
 		local speed = 32
 		chatt("gear me "..antilog.."18474459")
@@ -1714,7 +1714,7 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
 			end
 		end
 	end)
-
+	
 	addBtn("Shutdown", function(v)
 		chatt(prefix3.."vgcrash fuck")
 	end)
@@ -1726,7 +1726,7 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
     addBtn("House TP", function(v)
 		chatt(prefix3.."house fuck")
 	end)
-
+	
 	addBtn("ServerHop", function(v)
 		local x = {}
 		for _, v in ipairs(game:GetService("HttpService"):JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/112420803/servers/Public?sortOrder=Asc&limit=100")).data) do
@@ -1739,11 +1739,11 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
 			game:GetService("TeleportService"):TeleportToPlaceInstance(112420803, x[math.random(1, #x)])
 		end
 	end)
-
+	
 	addBtn("RegenPads", function(v)
 		fireclickdetector(adminFlr.Regen.ClickDetector, 0)
 	end)
-
+	
 	addBtn("NoObbyKill (NOK)", function(v)
 		local objs = gameFlr.Workspace.Obby:GetChildren()
 		for i, obj in pairs(objs) do
@@ -1795,7 +1795,7 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
             end
         end
     )
-
+	
 	local ELFRGD = false
 	addTlg("AntiKill", function()
 		chatt(prefix3.."antikill")
@@ -1814,7 +1814,7 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
 	end, function()
 		antiGear = false
 	end)
-
+	
 	local OELRDC = false
 	addTlg("AutoHeal", function()
 		OELRDC = true
@@ -1831,7 +1831,7 @@ local function NKEI_fake_script() -- ScrollingFrame.LocalScript
 	end, function()
 		OELRDC = false
 	end)
-
+	
 	local size = UIGridLayout.AbsoluteContentSize -- Set GUI Virutal size
 	ScrollingFrame.CanvasSize = UDim2.new(0, size.X, 0, size.Y)
 end
@@ -1859,25 +1859,25 @@ local function VGXONZ_fake_script() -- Frame.MguiD
 	local script = Instance.new('LocalScript', Frame)
 
 	local UserInputService = game:GetService("UserInputService")
-
+	
 	local gui = script.Parent
-
+	
 	local dragging
 	local dragInput
 	local dragStart
 	local startPos
-
+	
 	local function update(input)
 		local delta = input.Position - dragStart
 		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 	end
-
+	
 	gui.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragging = true
 			dragStart = input.Position
 			startPos = gui.Position
-
+	
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
 					dragging = false
@@ -1885,13 +1885,13 @@ local function VGXONZ_fake_script() -- Frame.MguiD
 			end)
 		end
 	end)
-
+	
 	gui.InputChanged:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 			dragInput = input
 		end
 	end)
-
+	
 	UserInputService.InputChanged:Connect(function(input)
 		if input == dragInput and dragging then
 			update(input)
@@ -1903,25 +1903,25 @@ local function EAZWOTE_fake_script() -- SCv2_ButtonList.MguiD
 	local script = Instance.new('LocalScript', SCv2_ButtonList)
 
 	local UserInputService = game:GetService("UserInputService")
-
+	
 	local gui = script.Parent
-
+	
 	local dragging
 	local dragInput
 	local dragStart
 	local startPos
-
+	
 	local function update(input)
 		local delta = input.Position - dragStart
 		gui.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
 	end
-
+	
 	gui.InputBegan:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
 			dragging = true
 			dragStart = input.Position
 			startPos = gui.Position
-
+	
 			input.Changed:Connect(function()
 				if input.UserInputState == Enum.UserInputState.End then
 					dragging = false
@@ -1929,13 +1929,13 @@ local function EAZWOTE_fake_script() -- SCv2_ButtonList.MguiD
 			end)
 		end
 	end)
-
+	
 	gui.InputChanged:Connect(function(input)
 		if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
 			dragInput = input
 		end
 	end)
-
+	
 	UserInputService.InputChanged:Connect(function(input)
 		if input == dragInput and dragging then
 			update(input)
